@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <h2>Register User</h2>
+    <form #frmRegister="ngForm" (submit)="onSubmit(frmRegister.value)">
+        <dl>
+            <dt>User Id</dt>
+            <dd><input type="text" (keyup)="VerifyUserId(UserId.value)" name="UserId" ngModel #UserId="ngModel"></dd>
+            <dd [ngClass]="{'text-danger':!isUserValid}">{{userError}}</dd>
+            <dt>User Name</dt>
+            <dd><input type="text" name="UserName" ngModel #UserName="ngModel"></dd>
+            <dt>Password</dt>
+            <dd><input type="password" name="Password" ngModel #Password="ngModel" ></dd>
+            <dt>Email</dt>
+            <dd><input type="Email" name="Email" ngModel #Email="ngModel"></dd>
+            <dt>Mobile</dt>
+            <dd><input type="text" name="Mobile" ngModel #Mobile="ngModel"></dd>
+        </dl>
+        <button class="btn btn-primary">Register</button>
+        <br>
+        <a routerLink="/login">Existing User?</a>
+    </form>
+</div>

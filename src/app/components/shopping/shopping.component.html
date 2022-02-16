@@ -1,0 +1,11 @@
+<div class="container-fluid">
+    <h2>Shopping Catalog</h2>
+    <div class="d-flex flex-wrap" style="height: 400px; overflow: auto;">
+        <div class="card m-2 p-2" *ngFor="let item of products" style="width: 200px;">
+            <img [src]="item.image" class="card-img-top" height="150">
+            <div class="card-header" style="height: 140px;">
+                <p>{{item.title}}</p>
+            </div>
+        </div>
+    </div>
+</div>

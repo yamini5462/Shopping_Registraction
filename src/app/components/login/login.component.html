@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <h2>Customer Login</h2>
+    <form [formGroup]="frmLogin" (submit)="onSubmit(frmLogin.value)">
+       <dl>
+           <dt>UserId</dt>
+           <dd><input type="text" formControlName="UserId"></dd>
+           <dd class="text-danger" *ngIf="UserId.touched && UserId.invalid">
+               <span *ngIf="UserId.errors?.['required']">User Id Required</span>
+               <span *ngIf="UserId.errors?.['minlength']">User Id too short.. min 4 chars</span>
+           </dd>
+           <dt>Password</dt>
+           <dd><input type="password" formControlName="Password"></dd>
+           <dd class="text-danger" *ngIf="Password.touched && Password.invalid">
+              <span *ngIf="Password.errors?.['required']">Password Required</span>
+              <span *ngIf="Password.errors?.['pattern']">Password 4 to 10 chars</span>
+           </dd>
+       </dl>
+       <button>Login</button>
+       <h3 class="text-danger text-center">{{userError}}</h3>
+    </form>
+    <br>
+    <a routerLink="/register">New User?</a>
+ </div>
