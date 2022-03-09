@@ -1,9 +1,9 @@
-<div class="container-fluid">
+<div class="container mr-5">
     <h2>Register User</h2>
-    <form #frmRegister="ngForm" (submit)="onSubmit(frmRegister.value)">
+    <form (submit)="onSubmit(frmRegister.value)" #frmRegister="ngForm" >
         <dl>
-            <dt>User Id</dt>
-            <dd><input type="text" (keyup)="VerifyUserId(UserId.value)" name="UserId" ngModel #UserId="ngModel"></dd>
+            <dt>UserId</dt>
+            <dd><input type="text"  name="UserId" ngModel #UserId="ngModel"></dd>
             <dd [ngClass]="{'text-danger':!isUserValid}">{{userError}}</dd>
             <dt>User Name</dt>
             <dd><input type="text" name="UserName" ngModel #UserName="ngModel"></dd>

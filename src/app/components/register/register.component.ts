@@ -17,21 +17,21 @@ export class RegisterComponent implements OnInit {
     this.dataservice.GetUsers().subscribe(user=> this.users = user);
   }
 
-  VerifyUserId(userid:any){
-    for(var user of this.users) {
-         if(user.UserId===userid){
-            this.userError = 'User Id Taken - Try Another';
-            this.isUserValid = false;
-            break;
-         } else {
-           this.userError = 'User Name Available';
-           this.isUserValid = true;
-         }
-    }
- }
+//   VerifyUserId(userid:any){
+//     for(var user of this.users) {
+//          if(user.UserId===userid){
+//             this.userError = 'User Id Taken - Try Another';
+//             this.isUserValid = false;
+//             break;
+//          } else {
+//            this.userError = 'User Name Available';
+//            this.isUserValid = true;
+//          }
+//     }
+//  }
   onSubmit(data:any){
     this.dataservice.RegisterUser(data).subscribe();
     alert('Registered Successfully..');
-    this.router.navigate(['login']);
+    this.router.navigate(['/login']);
 }
 }

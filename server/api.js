@@ -16,8 +16,8 @@ app.use(express.json());
 app.get('/getusers', function(request, response){
     mongoClient.connect(connectionString, function(err, clientObject){
          if(!err) {
-             var dbo = clientObject.db("ShoppingDB");
-             dbo.collection("ShoppingUsers").find().toArray(function(err, documents){
+             var dbo = clientObject.db("smartshopdb");
+             dbo.collection("tblcustomers").find().toArray(function(err, documents){
                  if(!err) {
                      response.send(documents);
                  }
@@ -26,10 +26,10 @@ app.get('/getusers', function(request, response){
     })
 });
 
-app.post('/registercustomer', function(request, response){
+app.post('/registeruser', function(request, response){
      mongoClient.connect(connectionString, function(err, clientObject){
         if(!err) {
-            var dbo = clientObject.db("ShoppingDB");
+            var dbo = clientObject.db("smartshopdb");
             var data = {
                 "UserId": request.body.UserId,
                 "UserName": request.body.UserName,
@@ -37,7 +37,7 @@ app.post('/registercustomer', function(request, response){
                 "Email": request.body.Email,
                 "Mobile": request.body.Mobile
             };
-            dbo.collection("ShoppingUsers").insertOne(data, function(err, result){
+            dbo.collection("tblcustomers").insertOne(data, function(err, result){
                 if(!err) {
                     console.log(`Record Inserted`);
                 }
@@ -49,8 +49,8 @@ app.post('/registercustomer', function(request, response){
 app.get('/getproducts', function(request, response){
     mongoClient.connect(connectionString, function(err, clientObject){ 
          if(!err) {
-             var dbo = clientObject.db('ShoppingDB');
-             dbo.collection('ShoppingUsers').find().toArray(function(err, documents){
+             var dbo = clientObject.db('smartshopdb');
+             dbo.collection('tblproducts').find().toArray(function(err, documents){
                 if(!err) {
                     response.send(documents);
                 }
@@ -60,4 +60,13 @@ app.get('/getproducts', function(request, response){
 });
 
 app.listen(4400);
-console.log(`Server Started : http://127.0.0.1:4000`);
+console.log(`Server Started : http://127.0.0.1:4400`);
+
+
+
+
+
+
+
+
+

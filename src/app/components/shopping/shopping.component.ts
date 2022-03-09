@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+// import { CookieService } from 'ngx-cookie-service';
 import { DataService } from 'src/app/services/data.service';
 
 
@@ -10,8 +11,9 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./shopping.component.css']
 })
 export class ShoppingComponent implements OnInit {
+ 
 
-  constructor(private data: DataService, private cookie: CookieService, private router: Router) { }
+  constructor(private cookie: CookieService,private data: DataService, private router: Router) { }
 
   products:any[] = [];
 

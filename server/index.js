@@ -20,8 +20,8 @@ app.get('/', function(req, res){
 app.get('/products', function(req, res){
    mongoClient.connect(connectionString, function(err, clientObject){
        if(!err) {
-          var dbo = clientObject.db("ShoppingDB");
-          dbo.collection("ShoppingUsers").find().toArray(function(err, documents){
+          var dbo = clientObject.db("smartshopdb");
+          dbo.collection("tblproducts").find().toArray(function(err, documents){
              if(!err) {
                 res.send(documents);
              }
@@ -34,8 +34,8 @@ app.get('/products/:id', function(req, res){
    var productId = parseInt(req.params.id);
    mongoClient.connect(connectionString, function(err, clientObject){
       if(!err) {
-         var dbo = clientObject.db("ShoppingDB");
-         dbo.collection("ShoppingUsers").find({id:productId}).toArray(function(err, documents){
+         var dbo = clientObject.db("smartshopdb");
+         dbo.collection("tblproducts").find({id:productId}).toArray(function(err, documents){
             if(!err) {
                res.send(documents);
             }
@@ -47,3 +47,7 @@ app.get('/products/:id', function(req, res){
 
 app.listen(3030);
 console.log(`Server Started : http://127.0.0.1:3030`);
+
+
+
+

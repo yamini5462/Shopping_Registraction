@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ManagerGuard implements CanActivate {
-  constructor(private cookie: CookieService, private router: Router){
+ 
+  constructor( private cookie: CookieService,private router: Router){
 
   }
   canActivate(
